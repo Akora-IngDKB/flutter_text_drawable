@@ -54,7 +54,7 @@ class _TextDrawableState extends State<TextDrawable> {
         borderRadius: widget.borderRadius,
       ),
       child: Text(
-        widget.text[0],
+        widget.text[0].toUpperCase(),
         style: widget.textStyle?.copyWith(
               color: contrast > 1.8 ? Colors.white : Colors.black,
             ) ??

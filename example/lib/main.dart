@@ -5,6 +5,7 @@ import 'package:flutter_text_drawable/flutter_text_drawable.dart';
 void main() {
   runApp(MaterialApp(
     title: 'Flutter Text Drawable Demo',
+    theme: ThemeData(primaryColor: Colors.green),
     home: MyApp(),
   ));
 }
