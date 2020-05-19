@@ -1,7 +1,4 @@
 library flutter_text_drawable;
 
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
+export 'package:flutter_text_drawable/src/text_drawable_widget.dart';
+export 'package:flutter_text_drawable/src/color_generator.dart';
