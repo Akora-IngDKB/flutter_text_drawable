@@ -3,14 +3,30 @@ import 'package:flutter_text_drawable/flutter_text_drawable.dart';
 import 'package:flutter_text_drawable/src/contrast_helper.dart';
 
 class TextDrawable extends StatefulWidget {
+  /// The text supplied. Only first character will be displayed
   final String text;
+
+  /// Height of the [TextDrawable] widget
   final double height;
+
+  /// Width of the [TextDrawable] widget
   final double width;
+
+  /// `TextStyle` for the `text` to be displayed
   final TextStyle textStyle;
+
+  /// Generates random colors
   final ColorGenerator colorGenerator;
+
+  /// Shape of the widget.
+  /// Defaults to `BoxShape.circle`
   final BoxShape boxShape;
+
+  /// Border radius of the widget
+  /// Do not specify this if `boxShape == BoxShape.circle`.
   final BorderRadiusGeometry borderRadius;
 
+  /// Creates a customizable [TextDrawable] widget.
   TextDrawable({
     Key key,
     @required this.text,
@@ -21,7 +37,7 @@ class TextDrawable extends StatefulWidget {
     this.boxShape = BoxShape.circle,
     this.borderRadius,
   }) : super(key: key) {
-    // assert(boxShape == BoxShape.rectangle && borderRadius == null);
+    assert(boxShape == BoxShape.circle && borderRadius == null);
   }
 
   @override
