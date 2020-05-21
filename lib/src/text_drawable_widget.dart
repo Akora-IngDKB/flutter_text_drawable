@@ -15,15 +15,16 @@ class TextDrawable extends StatefulWidget {
   /// `TextStyle` for the `text` to be displayed.
   final TextStyle textStyle;
 
-  /// Generates random colors.
-  final ColorGenerator colorGenerator;
+  /// Background color to for the widget.
+  /// If not specified, a random color will be generated.
+  final Color backgroundColor;
 
   /// Shape of the widget.
   /// Defaults to `BoxShape.circle`.
   final BoxShape boxShape;
 
   /// Border radius of the widget.
-  /// Do not specify this if `boxShape == BoxShape.circle`.
+  /// Only specify this if `boxShape == BoxShape.circle`.
   final BorderRadiusGeometry borderRadius;
 
   /// Specify duration of animation between text and checked icon.
@@ -42,10 +43,10 @@ class TextDrawable extends StatefulWidget {
   TextDrawable({
     Key key,
     @required this.text,
-    this.colorGenerator,
     this.height = 48,
     this.width = 48,
     this.textStyle,
+    this.backgroundColor,
     this.boxShape = BoxShape.circle,
     this.borderRadius,
     this.duration = kThemeAnimationDuration,
@@ -72,7 +73,7 @@ class _TextDrawableState extends State<TextDrawable> {
 
   @override
   void initState() {
-    backgroundColor = widget.colorGenerator?.getRandomColor() ??
+    backgroundColor = widget.backgroundColor ??
         ColorGenerator().getRandomColor();
     super.initState();
   }
