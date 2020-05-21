@@ -5,9 +5,11 @@ import 'package:test/test.dart';
 void main() {
   test("Color Generator Test", () {
     final ColorGenerator gen = ColorGenerator();
-
+    
+    // Generate a random color
     Color color = gen.getRandomColor();
 
-    expect(color, isNot(gen.getRandomColor()));
+    // Verify if it is a color indeed
+    expect(color, isA<Color>());
   });
 }
