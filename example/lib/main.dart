@@ -24,6 +24,12 @@ class MyApp extends StatelessWidget {
           return ListTile(
             leading: TextDrawable(
               text: "$index",
+              isTappable: true,
+              onTap: (val) {
+                print("$index selected: $val");
+              },
+              boxShape: BoxShape.rectangle,
+              borderRadius: BorderRadius.circular(8),
             ),
             title: Text("Item $index"),
           );
