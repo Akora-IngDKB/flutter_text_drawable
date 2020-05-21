@@ -1,3 +1,10 @@
+## [0.2.0] - 21-May-2020
+
+* Make widget tappable with `isTappable` param.
+* Receive `onTap` callback.
+* Animate between text and icon when widget is tapped.
+* Removed `colorGenerator` param.
+
 ## [0.1.2] - 21-May-2020
 
 * Added widget test for the TextDrawable widget
