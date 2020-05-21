@@ -1,8 +1,8 @@
 # flutter_text_drawable
 [![Pub](https://img.shields.io/pub/v/flutter_text_drawable.svg?style=flat-square&logo=dart&logoColor=white&color=blue)](https://pub.dev/packages/flutter_text_drawable)
-![Github Language](https://img.shields.io/github/languages/top/Akora-IngDKB/show_hide_fab)
-[![License](https://img.shields.io/badge/license-MIT-purple.svg)](LICENSE)
-![Tests](https://github.com/Akora-IngDKB/flutter_text_drawable/workflows/Tests/badge.svg)
+![Github Language](https://img.shields.io/github/languages/top/Akora-IngDKB/show_hide_fab?style=flat-square)
+[![License](https://img.shields.io/badge/license-MIT-purple.svg?style=flat-square)](LICENSE)
+![Tests](https://github.com/Akora-IngDKB/flutter_text_drawable/workflows/Tests/badge.svg?style=flat-square)
 
 A flutter package that gives you the flexibility to create and customize text user avatars like Gmail and Contacts.
 
