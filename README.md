@@ -46,7 +46,8 @@ When `selected = true`, long press events will not have any effect.
 <p align="center">  
 <img src="https://raw.githubusercontent.com/Akora-IngDKB/flutter_text_drawable/master/assets/shot3.gif" height=500em><br />  
 </p>
-Can be used like so:  
+Can be used like so: 
+ 
 ```dart
 ListView.builder(
   itemCount: 3,
