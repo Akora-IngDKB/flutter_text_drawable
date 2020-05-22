@@ -5,7 +5,7 @@ import 'package:test/test.dart';
 void main() {
   test("Color Generator Test", () {
     final ColorGenerator gen = ColorGenerator();
-    
+
     // Generate a random color
     Color color = gen.getRandomColor();
 
