@@ -4,7 +4,7 @@
 [![License](https://img.shields.io/badge/license-MIT-purple.svg?style=flat-square)](LICENSE)
 ![Tests](https://github.com/Akora-IngDKB/flutter_text_drawable/workflows/Tests/badge.svg?style=flat-square)
 
-A flutter package that gives you the flexibility to create and customize text user avatars like Gmail and Contacts.
+A flutter package that gives you the flexibility to create and customize text user avatars like Gmail and Contacts. It also provides a `TextDrawableListTile` widget which wraps around the material `ListTile` widget to provide easy control when using `TextDrawable` with a `ListTile`.
 
 <p align="center">  
 <img src="https://raw.githubusercontent.com/Akora-IngDKB/flutter_text_drawable/master/assets/shot1.png" height=500em><br />  
@@ -39,7 +39,28 @@ TextDrawable(
 
 ```
 
-## Properties available
+
+## TextDrawableListTile usage
+The `TextDrawableListTile` requires to parameters for a minimal usage - `drawableText` (String) and `title` (Widget). It supports all the params of the material `ListTile` widgets. The leading TextDrawable text animates into a check icon when tile is longPressed.  
+When `selected = true`, long press events will not have any effect.  
+<p align="center">  
+<img src="https://raw.githubusercontent.com/Akora-IngDKB/flutter_text_drawable/master/assets/shot3.gif" height=500em><br />  
+</p>
+Can be used like so:  
+```dart
+ListView.builder(
+  itemCount: 3,
+  itemBuilder: (context, index) {
+    return TextDrawableListTile(
+      drawableText: "$index",
+      title: Text("$index"),
+    );
+  },
+)
+``` 
+
+
+## TextDrawable Properties available
 | Property | Type | Description |
 | :--- | :---: | :--- |
 | `text` | String | The text you wish to display. Only first character will be displayed. |
@@ -53,43 +74,10 @@ TextDrawable(
 | `isTappable` | bool | Set to `true` when you want the widget to recognize taps. Typical selection behaviour found in the Gmail app. |
 | `onTap` | Function(bool) | Callback received when widget is tapped. It emits its current selected status. |
 
+
 ## Example
-```dart
-import 'package:flutter/material.dart';
+Check the examples tab or take a look at the [example](https://github.com/Akora-IngDKB/flutter_text_drawable/blob/master/example/lib/main.dart) file.
 
-import 'package:flutter_text_drawable/flutter_text_drawable.dart';
-
-void main() {
-  runApp(MaterialApp(
-    title: 'Flutter Text Drawable Demo',
-    theme: ThemeData(primaryColor: Colors.green),
-    home: MyApp(),
-  ));
-}
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text('Flutter Text Drawable Demo'),
-      ),
-      body: ListView.builder(
-        itemCount: 3,
-        itemBuilder: (context, index) {
-          return ListTile(
-            leading: TextDrawable(
-              text: "$index",
-            ),
-            title: Text("Item $index"),
-          );
-        },
-      ),
-    );
-  }
-}
-```
 
 ## License
 This project has been licensed under the MIT License. Check the [LICENSE](LICENSE) file for the details.

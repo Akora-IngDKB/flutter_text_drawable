@@ -1,3 +1,7 @@
+## [0.3.0] - 22-May-2020
+* Exposed `isSelected` param of `TextDrawable` for more flexiblity and control.
+* Added `TextDrawableListTile` widget. Useful for selectable tiles.
+
 ## [0.2.1] - 21-May-2020
 * Added pub badget to Readme
 
