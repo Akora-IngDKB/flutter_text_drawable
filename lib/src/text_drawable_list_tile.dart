@@ -13,20 +13,14 @@ class TextDrawableListTile extends StatefulWidget {
     this.trailing,
     this.isThreeLine = false,
     this.dense,
-    this.visualDensity,
     this.contentPadding,
     this.enabled = true,
     this.onTap,
     this.onLongPress,
     this.selected = false,
-    this.focusColor,
-    this.hoverColor,
-    this.focusNode,
-    this.autofocus = false,
   })  : assert(isThreeLine != null),
         assert(enabled != null),
         assert(selected != null),
-        assert(autofocus != null),
         assert(!isThreeLine || subtitle != null),
         assert(drawableText is String),
         super(key: key);
@@ -81,16 +75,6 @@ class TextDrawableListTile extends StatefulWidget {
   /// Dense list tiles default to a smaller height.
   final bool dense;
 
-  /// Defines how compact the list tile's layout will be.
-  ///
-  /// {@macro flutter.material.themedata.visualDensity}
-  ///
-  /// See also:
-  ///
-  ///  * [ThemeData.visualDensity], which specifies the [density] for all widgets
-  ///    within a [Theme].
-  final VisualDensity visualDensity;
-
   /// The tile's internal padding.
   ///
   /// Insets a [ListTile]'s contents: its [leading], [title], [subtitle],
@@ -123,18 +107,6 @@ class TextDrawableListTile extends StatefulWidget {
   /// If set to `true` long press events will not have any effect.
   final bool selected;
 
-  /// The color for the tile's [Material] when it has the input focus.
-  final Color focusColor;
-
-  /// The color for the tile's [Material] when a pointer is hovering over it.
-  final Color hoverColor;
-
-  /// {@macro flutter.widgets.Focus.focusNode}
-  final FocusNode focusNode;
-
-  /// {@macro flutter.widgets.Focus.autofocus}
-  final bool autofocus;
-
   @override
   _TextDrawableListTileState createState() => _TextDrawableListTileState();
 }
@@ -152,13 +124,9 @@ class _TextDrawableListTileState extends State<TextDrawableListTile> {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      autofocus: widget.autofocus,
       contentPadding: widget.contentPadding,
       dense: widget.dense,
       enabled: widget.enabled,
-      focusColor: widget.focusColor,
-      focusNode: widget.focusNode,
-      hoverColor: widget.hoverColor,
       isThreeLine: widget.isThreeLine,
       key: widget.key,
       leading: TextDrawable(
@@ -189,7 +157,6 @@ class _TextDrawableListTileState extends State<TextDrawableListTile> {
       subtitle: widget.subtitle,
       title: widget.title,
       trailing: widget.trailing,
-      visualDensity: widget.visualDensity,
     );
   }
 }
