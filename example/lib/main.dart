@@ -18,15 +18,36 @@ class MyApp extends StatelessWidget {
         centerTitle: true,
         title: Text('Flutter Text Drawable Demo'),
       ),
-      body: ListView.builder(
-        itemCount: 3,
-        itemBuilder: (context, index) {
-          return TextDrawableListTile(
-            drawableText: "$index",
-            title: Text("$index"),
-            onTap: null,
-          );
-        },
+      body: Column(
+        children: [
+          // Using TextDrawable alone
+          ListView.builder(
+            shrinkWrap: true,
+            itemCount: 3,
+            itemBuilder: (context, index) {
+              return ListTile(
+                leading: TextDrawable(
+                  text: "$index",
+                  isTappable: true,
+                ),
+                title: Text("Standalone Item $index"),
+              );
+            },
+          ),
+          SizedBox(height: 50),
+          // Using the TextDrawableListTile widget
+          ListView.builder(
+            shrinkWrap: true,
+            itemCount: 3,
+            itemBuilder: (context, index) {
+              return TextDrawableListTile(
+                drawableText: "$index",
+                title: Text("TextDrawableListTile Item $index"),
+                onTap: null,
+              );
+            },
+          ),
+        ],
       ),
     );
   }
