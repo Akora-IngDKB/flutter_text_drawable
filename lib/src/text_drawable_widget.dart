@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_text_drawable/flutter_text_drawable.dart';
+import 'package:flutter_text_drawable/src/color_generator.dart';
 import 'package:flutter_text_drawable/src/contrast_helper.dart';
 
+// ignore: must_be_immutable
 class TextDrawable extends StatefulWidget {
   /// The text supplied. Only first character will be displayed.
   final String text;
@@ -39,6 +40,8 @@ class TextDrawable extends StatefulWidget {
   /// It emits its current selected status.
   final Function(bool) onTap;
 
+  bool isSelected;
+
   /// Creates a customizable [TextDrawable] widget.
   TextDrawable({
     Key key,
@@ -51,6 +54,7 @@ class TextDrawable extends StatefulWidget {
     this.borderRadius,
     this.duration = kThemeAnimationDuration,
     this.isTappable = false,
+    this.isSelected = false,
     this.onTap,
   }) : super(key: key) {
     assert(
@@ -68,13 +72,12 @@ class TextDrawable extends StatefulWidget {
 }
 
 class _TextDrawableState extends State<TextDrawable> {
-  bool isSelected = false;
   Color backgroundColor;
 
   @override
   void initState() {
-    backgroundColor = widget.backgroundColor ??
-        ColorGenerator().getRandomColor();
+    backgroundColor =
+        widget.backgroundColor ?? ColorGenerator().getRandomColor();
     super.initState();
   }
 
@@ -92,11 +95,14 @@ class _TextDrawableState extends State<TextDrawable> {
 
     return GestureDetector(
       onTap: () {
-        setState(() {
-          isSelected = !isSelected;
-        });
+        if (widget.isTappable) {
+          setState(() {
+            widget.isSelected = !widget.isSelected;
+          });
 
-        if (widget.isTappable && widget.onTap != null) widget.onTap(isSelected);
+          if (widget.isTappable && widget.onTap != null)
+            widget.onTap(widget.isSelected);
+        }
       },
       child: Container(
         alignment: Alignment.center,
@@ -112,7 +118,7 @@ class _TextDrawableState extends State<TextDrawable> {
           transitionBuilder: (child, animation) {
             return ScaleTransition(child: child, scale: animation);
           },
-          child: (widget.isTappable && isSelected)
+          child: (widget.isSelected)
               ? Icon(
                   Icons.check,
                   color: contrast > 1.8 ? Colors.white : Colors.black,
