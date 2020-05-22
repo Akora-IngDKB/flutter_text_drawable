@@ -21,17 +21,10 @@ class MyApp extends StatelessWidget {
       body: ListView.builder(
         itemCount: 3,
         itemBuilder: (context, index) {
-          return ListTile(
-            leading: TextDrawable(
-              text: "$index",
-              isTappable: true,
-              onTap: (val) {
-                print("$index selected: $val");
-              },
-              boxShape: BoxShape.rectangle,
-              borderRadius: BorderRadius.circular(8),
-            ),
-            title: Text("Item $index"),
+          return TextDrawableListTile(
+            drawableText: "$index",
+            title: Text("$index"),
+            onTap: null,
           );
         },
       ),
