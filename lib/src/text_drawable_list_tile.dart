@@ -27,7 +27,7 @@ class TextDrawableListTile extends StatefulWidget {
 
   /// The string you wish to display in the leading [TextDrawable].
   /// Only the first character is displayed.
-  /// 
+  ///
   /// Must be a [String].
   final String drawableText;
 
