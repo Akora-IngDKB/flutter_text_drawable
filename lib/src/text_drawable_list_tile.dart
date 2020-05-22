@@ -31,8 +31,9 @@ class TextDrawableListTile extends StatefulWidget {
         assert(drawableText is String),
         super(key: key);
 
-  /// A widget to display before the title.
-  ///
+  /// The string you wish to display in the leading [TextDrawable].
+  /// Only the first character is displayed.
+  /// 
   /// Must be a [String].
   final String drawableText;
 
@@ -119,6 +120,7 @@ class TextDrawableListTile extends StatefulWidget {
   ///
   /// By default the selected color is the theme's primary color. The selected color
   /// can be overridden with a [ListTileTheme].
+  /// If set to `true` long press events will not have any effect.
   final bool selected;
 
   /// The color for the tile's [Material] when it has the input focus.
@@ -161,7 +163,7 @@ class _TextDrawableListTileState extends State<TextDrawableListTile> {
       key: widget.key,
       leading: TextDrawable(
         text: widget.drawableText[0],
-        isSelected: isSelected,
+        isSelected: widget.selected || isSelected,
         isTappable: true,
       ),
       onLongPress: () {
@@ -183,7 +185,7 @@ class _TextDrawableListTileState extends State<TextDrawableListTile> {
           }
         }
       },
-      selected: isSelected,
+      selected: widget.selected || isSelected,
       subtitle: widget.subtitle,
       title: widget.title,
       trailing: widget.trailing,
