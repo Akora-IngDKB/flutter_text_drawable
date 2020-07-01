@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:flutter_text_drawable/flutter_text_drawable.dart';
 
 void main() {
