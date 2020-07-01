@@ -1,9 +1,12 @@
+## [0.3.1] - 01-July-2020
+* Added flip animation when swapping text and icon.
+
 ## [0.3.0] - 22-May-2020
-* Exposed `isSelected` param of `TextDrawable` for more flexiblity and control.
+* Exposed `isSelected` param of `TextDrawable` for more flexibility and control.
 * Added `TextDrawableListTile` widget. Useful for selectable tiles.
 
 ## [0.2.1] - 21-May-2020
-* Added pub badget to Readme
+* Added pub badge to Readme
 
 ## [0.2.0] - 21-May-2020
 * Make widget tappable with `isTappable` param.
