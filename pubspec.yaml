@@ -1,10 +1,10 @@
 name: flutter_text_drawable
 description: A flutter library that gives you the flexibility to create and customize text user avatars like Gmail and Contacts.
-version: 0.3.1
+version: 1.0.0
 homepage: https://github.com/Akora-IngDKB/flutter_text_drawable.git
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: '>=2.12.0 <3.0.0'
 
 dependencies:
   flutter:

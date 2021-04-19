@@ -3,9 +3,9 @@ import 'dart:math';
 /// Calculates the constrast
 /// Concept source: https://stackoverflow.com/a/9733420
 class ContrastHelper {
-  static double luminance(int r, int g, int b) {
+  static double luminance(int? r, int? g, int? b) {
     final a = [r, g, b].map((it) {
-      double value = it.toDouble() / 255.0;
+      double value = it!.toDouble() / 255.0;
       return value <= 0.03928
           ? value / 12.92
           : pow((value + 0.055) / 1.055, 2.4);

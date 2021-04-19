@@ -6,9 +6,9 @@ class TextDrawableListTile extends StatefulWidget {
   /// and intercepts it's onLongPressed callback to provide give animations to
   /// the leading [TextDrawable] widget.
   const TextDrawableListTile({
-    Key key,
-    @required this.drawableText,
-    @required this.title,
+    Key? key,
+    required this.drawableText,
+    required this.title,
     this.subtitle,
     this.trailing,
     this.isThreeLine = false,
@@ -46,7 +46,7 @@ class TextDrawableListTile extends StatefulWidget {
   ///
   /// If [isThreeLine] is true, this should be configured to take a maximum of
   /// two lines.
-  final Widget subtitle;
+  final Widget? subtitle;
 
   /// A widget to display after the title.
   ///
@@ -57,7 +57,7 @@ class TextDrawableListTile extends StatefulWidget {
   /// [MainAxisAlign.baseline] alignment whose first item is [Expanded] and
   /// whose second child is the metadata text, instead of using the [trailing]
   /// property.
-  final Widget trailing;
+  final Widget? trailing;
 
   /// Whether this list tile is intended to display three lines of text.
   ///
@@ -73,7 +73,7 @@ class TextDrawableListTile extends StatefulWidget {
   /// If this property is null then its value is based on [ListTileTheme.dense].
   ///
   /// Dense list tiles default to a smaller height.
-  final bool dense;
+  final bool? dense;
 
   /// The tile's internal padding.
   ///
@@ -81,7 +81,7 @@ class TextDrawableListTile extends StatefulWidget {
   /// and [trailing] widgets.
   ///
   /// If null, `EdgeInsets.symmetric(horizontal: 16.0)` is used.
-  final EdgeInsetsGeometry contentPadding;
+  final EdgeInsetsGeometry? contentPadding;
 
   /// Whether this list tile is interactive.
   ///
@@ -93,12 +93,12 @@ class TextDrawableListTile extends StatefulWidget {
   /// Called when the user taps this list tile.
   ///
   /// Inoperative if [enabled] is false.
-  final GestureTapCallback onTap;
+  final GestureTapCallback? onTap;
 
   /// Called when the user long-presses on this list tile.
   ///
   /// Inoperative if [enabled] is false.
-  final GestureLongPressCallback onLongPress;
+  final GestureLongPressCallback? onLongPress;
 
   /// If this tile is also [enabled] then icons and text are rendered with the same color.
   ///
@@ -139,7 +139,7 @@ class _TextDrawableListTileState extends State<TextDrawableListTile> {
           setState(() {
             isSelected = !isSelected;
           });
-          if (widget.onTap != null) widget.onLongPress();
+          if (widget.onTap != null) widget.onLongPress!();
         }
       },
       onTap: () {
@@ -149,7 +149,7 @@ class _TextDrawableListTileState extends State<TextDrawableListTile> {
               isSelected = !isSelected;
             });
           } else {
-            if (widget.onTap != null) widget.onTap();
+            if (widget.onTap != null) widget.onTap!();
           }
         }
       },
