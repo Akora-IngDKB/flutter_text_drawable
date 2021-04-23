@@ -16,11 +16,11 @@ class TextDrawable extends StatefulWidget {
   final double width;
 
   /// `TextStyle` for the `text` to be displayed.
-  final TextStyle textStyle;
+  final TextStyle? textStyle;
 
   /// Background color to for the widget.
   /// If not specified, a random color will be generated.
-  final Color backgroundColor;
+  final Color? backgroundColor;
 
   /// Shape of the widget.
   /// Defaults to `BoxShape.circle`.
@@ -28,7 +28,7 @@ class TextDrawable extends StatefulWidget {
 
   /// Border radius of the widget.
   /// Only specify this if `boxShape == BoxShape.circle`.
-  final BorderRadiusGeometry borderRadius;
+  final BorderRadiusGeometry? borderRadius;
 
   /// Specify duration of animation when flipping between text and checked icon.
   /// Defaults to current theme animation duration.
@@ -40,14 +40,14 @@ class TextDrawable extends StatefulWidget {
 
   /// Callback received when widget is tapped.
   /// It emits its current selected status.
-  final Function(bool) onTap;
+  final Function(bool)? onTap;
 
   bool isSelected;
 
   /// Creates a customizable [TextDrawable] widget.
   TextDrawable({
-    Key key,
-    @required this.text,
+    Key? key,
+    required this.text,
     this.height = 48,
     this.width = 48,
     this.textStyle,
@@ -74,7 +74,7 @@ class TextDrawable extends StatefulWidget {
 }
 
 class _TextDrawableState extends State<TextDrawable> {
-  Color backgroundColor;
+  Color? backgroundColor;
 
   @override
   void initState() {
@@ -86,9 +86,9 @@ class _TextDrawableState extends State<TextDrawable> {
   @override
   Widget build(BuildContext context) {
     double contrast = ContrastHelper.contrast([
-      backgroundColor.red,
-      backgroundColor.green,
-      backgroundColor.blue,
+      backgroundColor!.red,
+      backgroundColor!.green,
+      backgroundColor!.blue,
     ], [
       255,
       255,
@@ -103,7 +103,7 @@ class _TextDrawableState extends State<TextDrawable> {
           });
 
           if (widget.isTappable && widget.onTap != null)
-            widget.onTap(widget.isSelected);
+            widget.onTap!(widget.isSelected);
         }
       },
       child: _Flippy(
@@ -148,22 +148,22 @@ class _Flippy extends StatelessWidget {
   final bool isSelected;
   final Widget front;
   final Widget back;
-  final Duration duration;
+  final Duration? duration;
 
   const _Flippy({
     this.isSelected = false,
     this.duration,
-    @required this.front,
-    @required this.back,
+    required this.front,
+    required this.back,
   });
 
   @override
   Widget build(BuildContext context) {
     return TweenAnimationBuilder(
-      duration: duration,
+      duration: duration!,
       curve: Curves.easeOut,
       tween: Tween<double>(begin: 0, end: isSelected ? 180 : 0),
-      builder: (context, value, child) {
+      builder: (context, dynamic value, child) {
         var content = value >= 90 ? back : front;
         return _RotationY(
           rotationY: value,
@@ -183,7 +183,7 @@ class _RotationY extends StatelessWidget {
   final Widget child;
   final double rotationY;
 
-  const _RotationY({Key key, @required this.child, this.rotationY = 0})
+  const _RotationY({Key? key, required this.child, this.rotationY = 0})
       : super(key: key);
 
   @override
