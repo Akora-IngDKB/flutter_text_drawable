@@ -18,10 +18,7 @@ class TextDrawableListTile extends StatefulWidget {
     this.onTap,
     this.onLongPress,
     this.selected = false,
-  })  : assert(isThreeLine != null),
-        assert(enabled != null),
-        assert(selected != null),
-        assert(!isThreeLine || subtitle != null),
+  })  : assert(!isThreeLine || subtitle != null),
         assert(drawableText is String),
         super(key: key);
 
