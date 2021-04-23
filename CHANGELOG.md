@@ -1,3 +1,6 @@
+## [1.0.0] - 23-April-2021
+* Migrate package to null-safety. Thanks to [richard457](https://github.com/richard457).
+
 ## [0.3.1] - 01-July-2020
 * Added flip animation when swapping text and icon.
 
