@@ -16,9 +16,6 @@ class AvatarDrawable extends StatefulWidget {
   /// Width of the [TextDrawable] widget.
   final double width;
 
-  /// `TextStyle` for the `text` to be displayed.
-  final TextStyle? textStyle;
-
   /// Background color to for the widget.
   /// If not specified, a random color will be generated.
   final Color? backgroundColor;
@@ -52,7 +49,6 @@ class AvatarDrawable extends StatefulWidget {
     required this.urlAvatar,
     this.height = 48,
     this.width = 48,
-    this.textStyle,
     this.backgroundColor,
     this.boxShape = BoxShape.circle,
     this.borderRadius,
